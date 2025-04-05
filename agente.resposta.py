@@ -114,10 +114,10 @@ with st.sidebar:
 st.title("⚽ Bem-vindo ao Assistente de Apostas Betnaldo! 🏆")
 
 # Mensagem inicial do agente com um toque de estilo
-st.markdown("<div style='background-color: #0E1117; padding: 10px; border-radius: 5px;'> <p style='color: #ADD8E6;'><b>AGENTE:</b> Qual a sua dúvida?</p> </div>", unsafe_allow_html=True)
+st.markdown("<div style='background-color: #0E1117; padding: 10px; border-radius: 5px;'> <p style='color: #ADD8E6;' class='typing-animation'> Sou Betnaldo, seu assistente de apostas esportivas. <br> Posso te ajudar com informações e orientações sobre suas apostas. <br> Qual é a sua dúvida?</p> </div>", unsafe_allow_html=True)
 
 # Caminho para a planilha
-caminho_arquivo = r"C:\Users\Salsa\Desktop\resposta.xlsx"  # Defina o caminho antes do try
+caminho_arquivo = r"C:\Users\Salsa\Desktop\resposta.xlsx"
 
 try:
     df = pd.read_excel(caminho_arquivo)
@@ -144,7 +144,7 @@ def get_ollama_response(prompt, model="llama2", max_tokens=150):
         response.raise_for_status()
         return response.json()["response"]
     except requests.exceptions.RequestException as e:
-        return f"Erro ao comunicar com o Ollama: {e}")
+        return f"Erro ao comunicar com o Ollama: {e}"  # Linha corrigida
 
 # Campo para o usuário digitar a pergunta
 pergunta_usuario = st.text_input("Digite sua pergunta aqui:")
