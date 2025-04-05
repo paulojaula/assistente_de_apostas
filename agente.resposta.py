@@ -87,7 +87,7 @@ st.markdown(
 
 # Barra lateral
 with st.sidebar:
-    caminho_imagem = r"C:\Users\Salsa\PycharmProjects\PythonProject2\betnaldo.gif"
+    caminho_imagem = "Leonardo_Phoenix_10_Create_a_small_robot_with_a_sleek_curved_b_2.jpg"  # 👈 **CORREÇÃO AQUI (CAMINHO RELATIVO)**
 
     if os.path.exists(caminho_imagem):
         # Ler a imagem como bytes e codificar para base64
@@ -97,12 +97,12 @@ with st.sidebar:
         # Injetar a imagem como uma string base64
         components.html(
             f"""
-            <img id="betnaldo-image" src="data:image/gif;base64,{encoded_string}" width="300">
+            <img id="betnaldo-image" src="data:image/jpeg;base64,{encoded_string}" width="300">
             """,
             height=300,
         )
     else:
-        st.error(f"Erro: Imagem não encontrada em: {caminho_arquivo}")
+        st.error(f"Erro: Imagem não encontrada em: {caminho_imagem}")
 
     st.markdown("### Sobre o Betnaldo")
     st.markdown("Seu guia virtual para o mundo das apostas esportivas.")
@@ -117,7 +117,7 @@ st.title("⚽ Bem-vindo ao Assistente de Apostas Betnaldo! 🏆")
 st.markdown("<div style='background-color: #0E1117; padding: 10px; border-radius: 5px;'> <p style='color: #ADD8E6;' class='typing-animation'> Sou Betnaldo, seu assistente de apostas esportivas. <br> Posso te ajudar com informações e orientações sobre suas apostas. <br> Qual é a sua dúvida?</p> </div>", unsafe_allow_html=True)
 
 # Caminho para a planilha
-caminho_arquivo = r"C:\Users\Salsa\Desktop\resposta.xlsx"  # Defina o caminho antes do try
+caminho_arquivo = r"C:\Users\Salsa\Desktop\resposta.xlsx"
 
 try:
     df = pd.read_excel(caminho_arquivo)
